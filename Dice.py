@@ -13,32 +13,46 @@ class Dice:
         self.number = random.randint(1, 6)
 
 
-# create a dice object
-die = Dice()
+class Test:
+    """Class to test Dice."""
 
-# Roll the die several times. Show result each time.
-for i in range(20):
-    die.roll()
-    print(die.number)
+    def __init__(self):
+        """Call Test() to create a test object."""
+        # create a dice object
+        self.die = Dice()
 
-
-# list of dice
-dice = []
-# Add 5 dice to list.
-for i in range(5):
-    dice.append(Dice())
-
-# Roll 5 dice. Show result. Re roll.
-for i in range(10):
-    print("Roll five dice.")
-    for die in dice:
-        die.roll()
-        print(die.number, end=" ")
-    print()
-    print()
+    def run(self):
+        """Run the test."""
+        # Roll the die several times. Show result each time.
+        for i in range(20):
+            self.die.roll()
+            print(self.die.number)
 
 
+class Test2:
+    """Class to test five dice."""
+    def __init__(self):
+        """Call Test2() to create a test object."""
+        # list of dice
+        self.dice = []
+        # Add 5 dice to list.
+        for i in range(5):
+            self.dice.append(Dice())
+
+    def run(self):
+        """Run the test."""
+        # Roll 5 dice. Show result. Re roll.
+        for i in range(10):
+            print("Roll five dice.")
+            for die in self.dice:
+                die.roll()
+                print(die.number, end=" ")
+            print()
+            print()
 
 
+test = Test()
+test.run()
 
-
+test_2 = Test2()
+test_2.run()
